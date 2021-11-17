@@ -5,6 +5,7 @@ import Home from './components/Home';
 import UserProfile from './components/UserProfile';
 import LogIn from './components/Login';
 import Debits from './components/Debits';
+import Credits from './components/Credits';
 
 class App extends Component {
   constructor() {
@@ -54,13 +55,27 @@ class App extends Component {
     const newDebit = {amount,description,date};
     this.setState(state => ({
       debits: [...state.debits, newDebit],
-      accountBalance: this.state.accountBalance - newDebit.amount
+      accountBalance: Number(state.accountBalance) - newDebit.amount
+    }))
+  }
+
+  addCredit = (e) => {
+    e.preventDefault();
+    const date = new Date().toISOString().substring(0, 10);
+    const description  = e.target[0].value;
+    const amount  = Number(e.target[1].value);
+    const newCredit = {amount,description,date};
+    console.log(amount)
+    this.setState(state => ({
+      credits: [...state.credits, newCredit],
+      accountBalance: Number(state.accountBalance) + newCredit.amount
     }))
   }
 
   render() {
-    const { debits } = this.state;
+    const { debits,credits} = this.state;
     const DebitsComponent = () => (<Debits addDebit={this.addDebit} debits={debits} accountBalance={this.state.accountBalance} />);
+    const CreditsComponent = () => (<Credits addCredit={this.addCredit} credits={credits} accountBalance={this.state.accountBalance} />);
     const HomeComponent = () => (<Home accountBalance={this.state.accountBalance}/>);
     const UserProfileComponent = () => (
       <UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince}  />
@@ -73,6 +88,7 @@ class App extends Component {
               <Route exact path="/userProfile" render={UserProfileComponent}/>
               <Route exact path="/login" render={LogInComponent}/>
               <Route exact path="/debits" render={DebitsComponent}/>
+              <Route exact path="/credits" render={CreditsComponent}/>
           </Switch>
         </Router>
     );
