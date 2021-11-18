@@ -1,5 +1,6 @@
 import React from 'react'
 import AccountBalance from './AccountBalance';
+import Navibar from './Navbar/Navbar';
 
 const Debits = (props) => {
     let debitsView = () => {
@@ -11,6 +12,7 @@ const Debits = (props) => {
     }
     return (
     	<div>
+           <Navibar />  
     	   <h1>Debits</h1>
     	   {debitsView()}
            <form onSubmit={props.addDebit}>
