@@ -65,7 +65,6 @@ class App extends Component {
     const description  = e.target[0].value;
     const amount  = Number(e.target[1].value);
     const newCredit = {amount,description,date};
-    console.log(amount)
     this.setState(state => ({
       credits: [...state.credits, newCredit],
       accountBalance: Number(state.accountBalance) + newCredit.amount
