@@ -1,16 +1,23 @@
 {
-  "main.css": "/Assignment_4/static/css/main.800d5844.chunk.css",
-  "main.js": "/Assignment_4/static/js/main.aecceda6.chunk.js",
-  "main.js.map": "/Assignment_4/static/js/main.aecceda6.chunk.js.map",
-  "runtime~main.js": "/Assignment_4/static/js/runtime~main.658db7c3.js",
-  "runtime~main.js.map": "/Assignment_4/static/js/runtime~main.658db7c3.js.map",
-  "static/js/2.054da590.chunk.js": "/Assignment_4/static/js/2.054da590.chunk.js",
-  "static/js/2.054da590.chunk.js.map": "/Assignment_4/static/js/2.054da590.chunk.js.map",
-  "index.html": "/Assignment_4/index.html",
-  "precache-manifest.d01d7f6eb9092cc207dba4b6285300f0.js": "/Assignment_4/precache-manifest.d01d7f6eb9092cc207dba4b6285300f0.js",
-  "service-worker.js": "/Assignment_4/service-worker.js",
-  "static/css/main.800d5844.chunk.css.map": "/Assignment_4/static/css/main.800d5844.chunk.css.map",
-  "static/media/App.css": "/Assignment_4/static/media/bg.c9dcf11d.png",
-  "static/media/pig1.png": "/Assignment_4/static/media/pig1.fa9d5f15.png",
-  "static/media/pig2.png": "/Assignment_4/static/media/pig2.9ad12eeb.png"
+  "files": {
+    "main.css": "/Assignment_4/static/css/main.cff38074.chunk.css",
+    "main.js": "/Assignment_4/static/js/main.08eee398.chunk.js",
+    "main.js.map": "/Assignment_4/static/js/main.08eee398.chunk.js.map",
+    "runtime-main.js": "/Assignment_4/static/js/runtime-main.fee84842.js",
+    "runtime-main.js.map": "/Assignment_4/static/js/runtime-main.fee84842.js.map",
+    "static/js/2.0a6c334d.chunk.js": "/Assignment_4/static/js/2.0a6c334d.chunk.js",
+    "static/js/2.0a6c334d.chunk.js.map": "/Assignment_4/static/js/2.0a6c334d.chunk.js.map",
+    "index.html": "/Assignment_4/index.html",
+    "static/css/main.cff38074.chunk.css.map": "/Assignment_4/static/css/main.cff38074.chunk.css.map",
+    "static/js/2.0a6c334d.chunk.js.LICENSE.txt": "/Assignment_4/static/js/2.0a6c334d.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/Assignment_4/static/media/bg.f0288f64.png",
+    "static/media/pig1.843fab9d.png": "/Assignment_4/static/media/pig1.843fab9d.png",
+    "static/media/pig2.d1f4b9a3.png": "/Assignment_4/static/media/pig2.d1f4b9a3.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fee84842.js",
+    "static/js/2.0a6c334d.chunk.js",
+    "static/css/main.cff38074.chunk.css",
+    "static/js/main.08eee398.chunk.js"
+  ]
 }
