@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import './App.css'
 import axios from 'axios'
 import Home from './components/Home';
 import UserProfile from './components/UserProfile';
@@ -23,15 +24,15 @@ class App extends Component {
   }
 
   mockLogIn = (logInInfo) => {
-    const newUser = {...this.state.currentUser}
+    const newUser = { ...this.state.currentUser }
     newUser.userName = logInInfo.userName
-    this.setState({currentUser: newUser})
+    this.setState({ currentUser: newUser })
   }
 
   async componentDidMount() {
     let debits = await axios.get("https://moj-api.herokuapp.com/debits")
     let credits = await axios.get("https://moj-api.herokuapp.com/credits")
-   
+
     debits = debits.data
     credits = credits.data
 
@@ -43,53 +44,53 @@ class App extends Component {
       creditSum += credit.amount
     })
 
-    let accountBalance = creditSum - debitSum;
-    this.setState({debits, credits, accountBalance});
-  } 
+    let accountBalance = (creditSum - debitSum).toFixed(2);
+    this.setState({ debits, credits, accountBalance });
+  }
 
   addDebit = (e) => {
     e.preventDefault();
-    const date = new Date().toISOString().substring(0, 10);
-    const description  = e.target[0].value;
-    const amount  = Number(e.target[1].value);
-    const newDebit = {amount,description,date};
+    const date = new Date().toISOString().substring(0, 10);    
+    const amount = Number(e.target[0].value).toFixed(2);
+    const description = e.target[1].value;
+    const newDebit = { amount, description, date };
     this.setState(state => ({
       debits: [...state.debits, newDebit],
-      accountBalance: Number(state.accountBalance) - newDebit.amount
+      accountBalance: (parseFloat(this.state.accountBalance) - parseFloat(amount)).toFixed(2)
     }))
   }
 
   addCredit = (e) => {
     e.preventDefault();
     const date = new Date().toISOString().substring(0, 10);
-    const description  = e.target[0].value;
-    const amount  = Number(e.target[1].value);
-    const newCredit = {amount,description,date};
+    const amount = Number(e.target[0].value).toFixed(2);
+    const description = e.target[1].value;
+    const newCredit = { amount, description, date };
     this.setState(state => ({
       credits: [...state.credits, newCredit],
-      accountBalance: Number(state.accountBalance) + newCredit.amount
+      accountBalance: (parseFloat(this.state.accountBalance) + parseFloat(amount)).toFixed(2)
     }))
   }
 
   render() {
-    const { debits,credits} = this.state;
+    const { debits, credits } = this.state;
     const DebitsComponent = () => (<Debits addDebit={this.addDebit} debits={debits} accountBalance={this.state.accountBalance} />);
     const CreditsComponent = () => (<Credits addCredit={this.addCredit} credits={credits} accountBalance={this.state.accountBalance} />);
-    const HomeComponent = () => (<Home accountBalance={this.state.accountBalance}/>);
+    const HomeComponent = () => (<Home accountBalance={this.state.accountBalance} />);
     const UserProfileComponent = () => (
-      <UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince}  />
+      <UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince} />
     );
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />);
     return (
-        <Router>
-          <Switch>
-              <Route exact path="/" render={HomeComponent}/>
-              <Route exact path="/userProfile" render={UserProfileComponent}/>
-              <Route exact path="/login" render={LogInComponent}/>
-              <Route exact path="/debits" render={DebitsComponent}/>
-              <Route exact path="/credits" render={CreditsComponent}/>
-          </Switch>
-        </Router>
+      <Router>
+        <Switch>
+          <Route exact path="/" render={HomeComponent} />
+          <Route exact path="/userProfile" render={UserProfileComponent} />
+          <Route exact path="/login" render={LogInComponent} />
+          <Route exact path="/debits" render={DebitsComponent} />
+          <Route exact path="/credits" render={CreditsComponent} />
+        </Switch>
+      </Router>
     );
   }
 }
