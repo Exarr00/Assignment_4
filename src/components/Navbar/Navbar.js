@@ -9,11 +9,11 @@ const Navibar = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-          <Nav.Link as={Link} to="/">Home</Nav.Link>
-          <Nav.Link as={Link} to="/userProfile">User Profile</Nav.Link>
-          <Nav.Link as={Link} to="/debits">Debits</Nav.Link>
-          <Nav.Link as={Link} to="/credits">Credit</Nav.Link>
-          <Nav.Link as={Link} to="/login">Login</Nav.Link>
+          <Nav.Link as={Link} to="/Assignment_4">Home</Nav.Link>
+          <Nav.Link as={Link} to="/Assignment_4/userProfile">User Profile</Nav.Link>
+          <Nav.Link as={Link} to="/Assignment_4/debits">Debits</Nav.Link>
+          <Nav.Link as={Link} to="/Assignment_4/credits">Credit</Nav.Link>
+          <Nav.Link as={Link} to="/Assignment_4/login">Login</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
