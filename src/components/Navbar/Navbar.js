@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Navibar = () => {
   return (
-    <Navbar expand="sm" bg="primary" variant="dark">
+    <Navbar expand="sm" bg="primary" variant="dark" fixed="top">
       <Navbar.Brand><img src={pig1} alt="" height="30" /> Bank Of React</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">

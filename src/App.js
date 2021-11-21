@@ -50,10 +50,11 @@ class App extends Component {
 
   addDebit = (e) => {
     e.preventDefault();
-    const date = new Date().toISOString().substring(0, 10);    
+    const id = Math.floor(Math.random() * 9999) //Generate random id
+    const date = new Date().toISOString().substring(0, 10); //Get date in yyyy-mm-dd format 
     const amount = Number(e.target[0].value).toFixed(2);
     const description = e.target[1].value;
-    const newDebit = { amount, description, date };
+    const newDebit = {id, amount, description, date };
     this.setState(state => ({
       debits: [...state.debits, newDebit],
       accountBalance: (parseFloat(this.state.accountBalance) - parseFloat(amount)).toFixed(2)
@@ -62,10 +63,11 @@ class App extends Component {
 
   addCredit = (e) => {
     e.preventDefault();
-    const date = new Date().toISOString().substring(0, 10);
+    const id = Math.floor(Math.random() * 9999) //Generate random id
+    const date = new Date().toISOString().substring(0, 10); //Get date in yyyy-mm-dd format
     const amount = Number(e.target[0].value).toFixed(2);
     const description = e.target[1].value;
-    const newCredit = { amount, description, date };
+    const newCredit = { id, amount, description, date };
     this.setState(state => ({
       credits: [...state.credits, newCredit],
       accountBalance: (parseFloat(this.state.accountBalance) + parseFloat(amount)).toFixed(2)
